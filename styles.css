@@ -197,6 +197,10 @@ label {
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 0.2px;
+
+    /* bigger + bold but consistent */
+    font-size: 14px;
+    font-weight: 900;
 }
 
 input, select {
@@ -208,7 +212,10 @@ input, select {
     color: var(--text);
     outline: none;
     transition: 0.2s ease;
-    font-weight: 700;
+    font-weight: 900;
+
+    /* keep consistent “bold & slightly bigger” */
+    font-size: 14px;
     min-width: 0;
 }
 
@@ -219,7 +226,7 @@ input:focus, select:focus {
 
 input::placeholder {
     color: rgba(156, 179, 200, 0.9);
-    font-weight: 700;
+    font-weight: 900;
 }
 
 body.light input, body.light select {
@@ -246,22 +253,16 @@ body.light select option {
     min-height: 96px;
 }
 
-.neon-volume-box {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.14), inset 0 0 18px rgba(0, 212, 255, 0.06);
-}
-
-body.light .neon-volume-box {
-    box-shadow: 0 0 30px rgba(47, 125, 255, 0.10), inset 0 0 18px rgba(47, 125, 255, 0.05);
-}
-
+/* Make stat labels/values same “bigger + bold” vibe */
 .stat-label {
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 900;
+    letter-spacing: 0.2px;
 }
 
 .stat-value {
-    font-size: clamp(18px, 4vw, 26px);
+    font-size: 22px;
     font-weight: 900;
     margin-top: 6px;
     color: var(--text);
@@ -277,6 +278,15 @@ body.light .neon-volume-box {
     color: var(--neon);
     font-weight: 900;
     background: rgba(0, 212, 255, 0.08);
+    font-size: 16px;
+}
+
+.neon-volume-box {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.14), inset 0 0 18px rgba(0, 212, 255, 0.06);
+}
+
+body.light .neon-volume-box {
+    box-shadow: 0 0 30px rgba(47, 125, 255, 0.10), inset 0 0 18px rgba(47, 125, 255, 0.05);
 }
 
 .table-wrap {
@@ -365,14 +375,14 @@ tr:hover td {
     }
 
     label {
-        font-size: 10px;
+        font-size: 12px;
         margin-bottom: 5px;
     }
 
     input, select, .btn {
         padding: 9px 10px;
         border-radius: 10px;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .btn, .btn-secondary {
@@ -392,12 +402,12 @@ tr:hover td {
     }
 
     .stat-value {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .lot-pill {
         padding: 7px 10px;
-        font-size: 11px;
+        font-size: 12px;
         margin-top: 8px;
     }
 
@@ -432,7 +442,7 @@ tr:hover td {
 
     input, select, .btn {
         padding: 8px 9px;
-        font-size: 10px;
+        font-size: 11px;
         border-radius: 9px;
     }
 
@@ -453,11 +463,11 @@ tr:hover td {
         min-height: 76px;
     }
 
-    .stat-value { font-size: 15px; }
-    .stat-label { font-size: 9px; }
+    .stat-value { font-size: 16px; }
+    .stat-label { font-size: 11px; }
 
     .lot-pill {
-        font-size: 10px;
+        font-size: 11px;
         padding: 6px 9px;
     }
 
