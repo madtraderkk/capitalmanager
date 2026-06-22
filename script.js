@@ -1,7 +1,7 @@
 let currentDayCount = 1;
 
-let initialCapital = 5000;
-let liveBalance = 5000;
+let initialCapital = 0;
+let liveBalance = 0;
 
 let targetPopupShown = false;
 let csvDownloaded = false;
@@ -296,7 +296,7 @@ function loadSavedData() {
   const payload = JSON.parse(saved);
 
   currentDayCount = payload.currentDayCount || 1;
-  initialCapital = Number(payload.initialCapital) || 5000;
+  initialCapital = Number(payload.initialCapital) || 0;
   liveBalance = Number(payload.liveBalance) || initialCapital;
 
   if ($("dailyTargetInput") && payload.dailyTargetInput != null) $("dailyTargetInput").value = payload.dailyTargetInput;
@@ -326,7 +326,7 @@ function loadSavedData() {
       <td style="color:${statusTxt === "GREEN" ? "var(--neon2)" : "var(--danger)"}">${statusTxt || ""}</td>
     `;
   });
-};
+}
 
 window.openInitialBalancePrompt = function openInitialBalancePrompt() {
   const pin = prompt("Enter password to edit Initial Balance:");
@@ -355,8 +355,8 @@ window.showResetPrompt = function showResetPrompt() {
   localStorage.removeItem(STORAGE_KEY);
 
   currentDayCount = 1;
-  initialCapital = 5000;
-  liveBalance = 5000;
+  initialCapital = 0;
+  liveBalance = 0;
   targetPopupShown = false;
 
   const tbody = document.querySelector("#ledgerTable tbody");
