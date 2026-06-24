@@ -176,8 +176,9 @@ window.recalculateOptimizer = function recalculateOptimizer() {
   if (capital > 0 && targetPips > 0 && pipValue > 0) {
     rawLot = dailyTargetProfit / (targetPips * pipValue);
   }
-  if (rawLot < 0.01) rawLot = 0.01;
-  if (rawLot > 0.10) rawLot = 0.10;
+
+  // keep only minimum floor (remove max 0.10 cap)
+  if (rawLot > 0 && rawLot < 0.01) rawLot = 0.01;
 
   const dailyProfitText = $("dailyProfitText");
   if (dailyProfitText) dailyProfitText.innerText = `$${dailyTargetProfit.toFixed(2)}`;
@@ -221,7 +222,7 @@ window.journalizeDay = function journalizeDay() {
     return;
   }
 
-  // ✅ normalize: "1,000" -> 1000, " 1 " -> 1
+  // normalize: "1,000" -> 1000
   const raw = String(closedPLInput.value ?? "").replace(/,/g, "").trim();
   const actualPL = parseFloat(raw);
 
@@ -239,7 +240,7 @@ window.journalizeDay = function journalizeDay() {
 
   const endingBalance = startingBalance + actualPL;
 
-  // ✅ Status ONLY by sign of actualPL
+  // Status ONLY by sign of actualPL
   const status = actualPL >= 0 ? "GREEN" : "RED";
 
   addRowToLedger({
